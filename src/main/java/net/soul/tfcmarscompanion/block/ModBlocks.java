@@ -12,6 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.soul.tfcmarscompanion.TFCMarsCompanion;
+import net.soul.tfcmarscompanion.item.ModCreativeModeTab;
 import net.soul.tfcmarscompanion.item.ModItems;
 
 import java.util.function.Supplier;
@@ -21,7 +22,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> BLOCK_OF_MARS_TOKEN = registerBlock("block_of_mars_token",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
-                    .strength(9f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_MISC);
+                    .strength(9f).requiresCorrectToolForDrops()), ModCreativeModeTab.TFCMARS_TAB );
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -29,7 +30,7 @@ public class ModBlocks {
         return toReturn;
     }
 
-    private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block,CreativeModeTab tab) {
+    private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
         new Item.Properties().tab(tab)));
     }

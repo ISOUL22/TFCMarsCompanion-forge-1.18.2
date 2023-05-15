@@ -1,6 +1,7 @@
 {
   "item.tfcmars.mars_token": "Mars Token",
 
+  "block.tfcmars.block_of_mars_token": "Block of Mars Token",
 
-  "block.tfcmars.block_of_mars_token": "Block of Mars Token"
+  "itemGroup.tfcmars_tab": "TFC Mars Tab"
 }

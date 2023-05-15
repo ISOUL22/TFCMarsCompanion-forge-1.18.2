@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcmars:block_of_mars_token"
+    }
+  ],
+  "result": {
+    "item": "tfcmars:mars_token",
+    "count": 9
+  }
+}
