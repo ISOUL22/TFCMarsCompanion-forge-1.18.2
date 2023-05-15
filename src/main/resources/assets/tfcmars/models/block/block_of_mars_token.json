@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "tfcmars:block/block_of_mars_token"
+  }
+}

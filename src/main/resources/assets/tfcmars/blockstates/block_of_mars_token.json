@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "tfcmars:block/block_of_mars_token"}
+  }
+}
