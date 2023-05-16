@@ -1,4 +1,4 @@
-package net.soul.tfcmarscompanion;
+package net.soul.tfcmars;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -9,18 +9,18 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.soul.tfcmarscompanion.block.ModBlocks;
-import net.soul.tfcmarscompanion.item.ModItems;
+import net.soul.tfcmars.block.ModBlocks;
+import net.soul.tfcmars.item.ModItems;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(TFCMarsCompanion.MOD_ID)
-public class TFCMarsCompanion {
+@Mod(TFCMars.MOD_ID)
+public class TFCMars {
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "tfcmars";
 
-    public TFCMarsCompanion() {
+    public TFCMars() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(eventBus);

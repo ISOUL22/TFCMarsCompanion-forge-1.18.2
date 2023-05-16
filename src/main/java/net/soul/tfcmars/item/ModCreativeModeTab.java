@@ -1,4 +1,4 @@
-package net.soul.tfcmarscompanion.item;
+package net.soul.tfcmars.item;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;

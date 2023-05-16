@@ -1,6 +1,5 @@
-package net.soul.tfcmarscompanion.block;
+package net.soul.tfcmars.block;
 
-import com.google.errorprone.annotations.SuppressPackageLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -11,15 +10,14 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.soul.tfcmarscompanion.TFCMarsCompanion;
-import net.soul.tfcmarscompanion.item.ModCreativeModeTab;
-import net.soul.tfcmarscompanion.item.ModItems;
+import net.soul.tfcmars.TFCMars;
+import net.soul.tfcmars.item.ModCreativeModeTab;
+import net.soul.tfcmars.item.ModItems;
 
-import java.awt.image.SampleModel;
 import java.util.function.Supplier;
 
 public class ModBlocks {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TFCMarsCompanion.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TFCMars.MOD_ID);
 
     public static final RegistryObject<Block> BLOCK_OF_MARS_TOKEN = registerBlock("block_of_mars_token",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)

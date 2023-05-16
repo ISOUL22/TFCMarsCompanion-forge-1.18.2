@@ -1,4 +1,4 @@
-package net.soul.tfcmarscompanion.block.custom;
+package net.soul.tfcmars.block.custom;
 
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
