@@ -1,6 +1,8 @@
 package net.soul.tfcmarscompanion;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,6 +30,10 @@ public class TFCMarsCompanion {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    private void clientSetup(final FMLCommonSetupEvent event){
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.Mars_Berries.get(), RenderType.cutout());
     }
 
     private void setup(final FMLCommonSetupEvent event) {

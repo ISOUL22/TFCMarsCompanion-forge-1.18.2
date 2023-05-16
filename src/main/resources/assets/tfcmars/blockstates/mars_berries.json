@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "tfcmars:block/mars_berries_block"}
+  }
+}

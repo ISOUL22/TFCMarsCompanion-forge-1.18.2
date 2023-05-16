@@ -12,6 +12,8 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TFCMarsCompanion.MOD_ID);
         public static final RegistryObject<Item> MARS_TOKEN = ITEMS.register("mars_token",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TFCMARS_TAB)));
+        public static final RegistryObject<Item> MARS_BERRIES_ITEM = ITEMS.register("mars_berries_item",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TFCMARS_TAB)));
 
 
     public static void register(IEventBus eventBus) {

@@ -15,6 +15,7 @@ import net.soul.tfcmarscompanion.TFCMarsCompanion;
 import net.soul.tfcmarscompanion.item.ModCreativeModeTab;
 import net.soul.tfcmarscompanion.item.ModItems;
 
+import java.awt.image.SampleModel;
 import java.util.function.Supplier;
 
 public class ModBlocks {
@@ -23,7 +24,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOCK_OF_MARS_TOKEN = registerBlock("block_of_mars_token",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(9f).requiresCorrectToolForDrops()), ModCreativeModeTab.TFCMARS_TAB );
-
+    public static final RegistryObject<Block> Mars_Berries = registerBlock("mars_berries_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(1f).requiresCorrectToolForDrops()), ModCreativeModeTab.TFCMARS_TAB );
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn, tab);
