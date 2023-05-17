@@ -1,0 +1,21 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "precipitation": "none",
+  "category": "none",
+  "temperature": 0,
+  "temperature_modifier": "none",
+  "downfall": 0.5,
+  "effects": {
+    "fog_color": 0,
+    "sky_color": 0,
+    "water_color": 0,
+    "water_fog_color": 0
+  },
+  "carvers": {},
+  "features": [],
+  "starts": [],
+  "spawners": {},
+  "player_spawn_friendly": true,
+  "creature_spawn_probability": 0.5,
+  "spawn_costs": {}
+}

@@ -79,6 +79,10 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
+
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
@@ -89,6 +93,8 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
     // Patchouli
     implementation fg.deobf("curse.maven:patchouli-306770:3846086")
+
+    //runtimeOnly fg.deobf("cyanide:cyanide-forge-1.18.2:2.1.1")
 
 }
 

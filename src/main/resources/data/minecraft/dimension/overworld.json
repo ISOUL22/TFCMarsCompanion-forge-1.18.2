@@ -1,0 +1,27 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfcmars:mars",
+  "forge:use_server_seed": true,
+  "generator": {
+    "biome_source": {
+      "biomes": [
+        {
+          "biome": "tfcmars:plains",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        }
+      ],
+      "type": "minecraft:multi_noise"
+    },
+    "seed": 0,
+    "settings": "tfcmars:mars",
+    "type": "minecraft:noise"
+  }
+}

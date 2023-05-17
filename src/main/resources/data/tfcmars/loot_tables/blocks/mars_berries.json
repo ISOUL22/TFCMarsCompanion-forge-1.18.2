@@ -8,7 +8,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tfcmars:mars_berries",
+          "name": "tfcmars:mars_berry",
           "functions": [
             {
               "function": "minecraft:set_count",
