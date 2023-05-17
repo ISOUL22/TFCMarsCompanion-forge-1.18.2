@@ -15,12 +15,14 @@ import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TFCMars.MOD_ID)
-public class TFCMars {
+public class TFCMars
+{
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "tfcmars";
 
-    public TFCMars() {
+    public TFCMars()
+    {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(eventBus);
@@ -32,11 +34,13 @@ public class TFCMars {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void clientSetup(final FMLCommonSetupEvent event){
+    private void clientSetup(final FMLCommonSetupEvent event)
+    {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.Mars_Berries.get(), RenderType.cutout());
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
+    private void setup(final FMLCommonSetupEvent event)
+    {
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
