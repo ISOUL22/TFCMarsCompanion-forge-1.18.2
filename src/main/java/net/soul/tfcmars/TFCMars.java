@@ -1,48 +1,49 @@
 package net.soul.tfcmars;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.soul.tfcmars.block.ModBlocks;
+import net.soul.tfcmars.client.MarsClientEvents;
+import net.soul.tfcmars.client.MarsClientForgeEvents;
 import net.soul.tfcmars.item.ModItems;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(TFCMars.MOD_ID)
 public class TFCMars
 {
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "tfcmars";
 
     public TFCMars()
     {
-        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.register(eventBus);
-        ModBlocks.register(eventBus);
+        ModItems.register(bus);
+        ModBlocks.register(bus);
 
-        eventBus.addListener(this::setup);
+        bus.addListener(this::setup);
 
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+        if (FMLEnvironment.dist == Dist.CLIENT)
+        {
+            MarsClientEvents.init();
+            MarsClientForgeEvents.init();
+        }
     }
 
-    private void clientSetup(final FMLCommonSetupEvent event)
+    public void setup(FMLCommonSetupEvent event)
     {
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.Mars_Berries.get(), RenderType.cutout());
+
     }
 
-    private void setup(final FMLCommonSetupEvent event)
+    public static ResourceLocation identifier(String path)
     {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        return new ResourceLocation(MOD_ID, path);
     }
+
 }
