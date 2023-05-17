@@ -15,7 +15,7 @@ public class ModItems
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TFCMars.MOD_ID);
 
     public static final RegistryObject<Item> MARS_TOKEN = register("mars_token");
-    public static final RegistryObject<Item> MARS_BERRIES_ITEM = register("mars_berries_item");
+    public static final RegistryObject<Item> MARS_BERRY = register("mars_berry");
 
     public static <T extends Item> RegistryObject<T> register(String name, Supplier<T> supplier)
     {

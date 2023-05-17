@@ -19,6 +19,6 @@ public final class MarsClientEvents
     public static void setup(FMLClientSetupEvent event)
     {
         final RenderType cutout = RenderType.cutout();
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MARS_BERRIES_BLOCK.get(), cutout);
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MARS_BERRIES.get(), cutout);
     }
 }

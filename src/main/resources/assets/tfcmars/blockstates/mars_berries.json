@@ -1,5 +1,20 @@
 {
+  "__comment__": "This file was automatically created by mcresources",
   "variants": {
-    "": { "model": "tfcmars:block/mars_berries_block"}
+    "facing=east": {
+      "model": "tfcmars:block/mars_berries",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tfcmars:block/mars_berries"
+    },
+    "facing=south": {
+      "model": "tfcmars:block/mars_berries",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tfcmars:block/mars_berries",
+      "y": 270
+    }
   }
 }

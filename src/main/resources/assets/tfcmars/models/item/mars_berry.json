@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "block/cube_all",
+  "parent": "item/generated",
   "textures": {
-    "all": "tfcmars:block/block_of_mars_token"
+    "layer0": "tfcmars:item/mars_berry"
   }
 }

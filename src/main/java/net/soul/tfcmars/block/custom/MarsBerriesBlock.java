@@ -17,13 +17,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class MarsBerriesBlock extends Block
 {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    private static final VoxelShape SHAPE = box(0, 0, 0, 16, 2, 16);
 
     public MarsBerriesBlock(Properties properties)
     {
         super(properties);
     }
-
-    private static final VoxelShape SHAPE = box(0, 0, 0, 16, 2, 16);
 
     @Override
     @SuppressWarnings("deprecation")

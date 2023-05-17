@@ -4,6 +4,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,14 +23,19 @@ public class ModBlocks
 {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TFCMars.MOD_ID);
 
-    public static final RegistryObject<Block> BLOCK_OF_MARS_TOKEN = registerBlock("block_of_mars_token",
+    public static final RegistryObject<Block> BLOCK_OF_MARS_TOKEN = register("block_of_mars_token",
         () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
-            .strength(9f).requiresCorrectToolForDrops()), TFCMARS_TAB);
-    public static final RegistryObject<Block> MARS_BERRIES_BLOCK = registerBlock("mars_berries_block",
+            .strength(9f).requiresCorrectToolForDrops().sound(SoundType.METAL)), TFCMARS_TAB);
+    public static final RegistryObject<Block> MARS_BERRIES = register("mars_berries",
         () -> new MarsBerriesBlock(BlockBehaviour.Properties.of(Material.STONE)
-            .strength(1f).requiresCorrectToolForDrops()), TFCMARS_TAB);
+            .strength(1f).requiresCorrectToolForDrops().noOcclusion().sound(SoundType.STONE)), TFCMARS_TAB);
 
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab)
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block)
+    {
+        return BLOCKS.register(name, block);
+    }
+
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block, CreativeModeTab tab)
     {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn, tab);

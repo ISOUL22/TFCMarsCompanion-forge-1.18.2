@@ -1,6 +1,8 @@
 {
+  "__comment__": "This file was automatically created by mcresources",
   "replace": false,
   "values": [
-    "tfcmars:block_of_mars_token"
+    "tfcmars:block_of_mars_token",
+    "tfcmars:mars_berries"
   ]
 }

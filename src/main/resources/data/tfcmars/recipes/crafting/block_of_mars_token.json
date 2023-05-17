@@ -1,12 +1,13 @@
 {
+  "__comment__": "This file was automatically created by mcresources",
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "XXX",
+    "XXX",
+    "XXX"
   ],
   "key": {
-    "#": {
+    "X": {
       "item": "tfcmars:mars_token"
     }
   },
