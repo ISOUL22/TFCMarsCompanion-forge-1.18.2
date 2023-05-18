@@ -30,14 +30,17 @@
     [],
     [],
     [
-      "tfcmars:meteorite",
       "tfcmars:conglomerate_boulder",
       "tfcmars:sandstone_boulder",
       "tfcmars:basalt_boulder",
-      "tfcmars:shale_boulder"
+      "tfcmars:shale_boulder",
+      "tfcmars:crater",
+      "tfcmars:meteorite"
     ],
     [],
-    [],
+    [
+      "tfc:vein/gravel"
+    ],
     [],
     [
       "minecraft:spring_lava"

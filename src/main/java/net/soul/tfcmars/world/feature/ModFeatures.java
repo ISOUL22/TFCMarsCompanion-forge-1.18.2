@@ -20,6 +20,7 @@ public class ModFeatures
     public static final RegistryObject<MarsBoulderFeature> BOULDERS = register("boulders", MarsBoulderFeature::new, WeightedStateConfig.CODEC);
     public static final RegistryObject<MarsLooseRockFeature> LOOSE_ROCKS = register("loose_rocks", MarsLooseRockFeature::new, NoneFeatureConfiguration.CODEC);
     public static final RegistryObject<RockLayersFeature> ROCK_LAYERS = register("rock_layers", RockLayersFeature::new, NoneFeatureConfiguration.CODEC);
+    public static final RegistryObject<CraterFeature> CRATER = register("crater", CraterFeature::new, NoneFeatureConfiguration.CODEC);
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> RegistryObject<F> register(String name, Function<Codec<C>, F> factory, Codec<C> codec)
     {

@@ -30,6 +30,7 @@ public class ModBlocks
         () -> new MarsBerriesBlock(BlockBehaviour.Properties.of(Material.STONE)
             .strength(1f).requiresCorrectToolForDrops().noOcclusion().sound(SoundType.STONE)), TFCMARS_TAB);
     public static final RegistryObject<Block> METEORITE = register("meteorite", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(10f).requiresCorrectToolForDrops().sound(SoundType.STONE)), TFCMARS_TAB);
+    public static final RegistryObject<Block> STANDARD_CASING = register("standard_casing", () -> new Block(BlockBehaviour.Properties.of(Material.WOOL).strength(5f).sound(SoundType.WOOL)), TFCMARS_TAB);
 
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block)
     {

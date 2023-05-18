@@ -12,7 +12,8 @@ def generate(rm: ResourceManager):
     block.with_lang(lang('mars berries')).with_tag('minecraft:mineable/pickaxe').with_block_loot('1-3 tfcmars:mars_berry')
     rm.item_model('mars_berries', parent='tfcmars:block/mars_berries', no_textures=True)
 
-    rm.blockstate('meteorite').with_block_model().with_lang(lang('meteorite')).with_item_model().with_tag('minecraft:mineable/pickaxe').with_block_loot('tfcmars:meteorite')
+    rm.blockstate('meteorite').with_block_model().with_lang(lang('meteorite')).with_item_model().with_tag('minecraft:mineable/pickaxe').with_block_loot('1-3 tfcmars:meteorite_chunk')
+    rm.blockstate('standard_casing').with_block_model().with_lang(lang('standard_casing')).with_item_model().with_tag('tfc:mineable_with_sharp_tool').with_block_loot('tfcmars:standard_casing')
 
     for name in SIMPLE_ITEMS:
         rm.item_model(name).with_lang(lang(name))

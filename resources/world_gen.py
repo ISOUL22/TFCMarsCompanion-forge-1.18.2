@@ -11,6 +11,7 @@ def generate(rm: ResourceManager):
     configured_placed_feature(rm, 'erosion', 'tfcmars:erosion')
     configured_placed_feature(rm, 'rock_layers', 'tfcmars:rock_layers')
     configured_placed_feature(rm, 'meteorite', 'tfcmars:meteor', {}, decorate_chance(100), decorate_square(), decorate_heightmap('ocean_floor_wg'), decorate_biome())
+    configured_placed_feature(rm, 'crater', 'tfcmars:crater', {}, decorate_chance(14), decorate_square(), decorate_heightmap('ocean_floor_wg'), decorate_biome())
     configured_placed_feature(rm, 'sandstone_boulder', 'tfcmars:boulders', {'blocks': [{'block': 'tfc:raw_sandstone/red'}]}, decorate_chance(30), decorate_square(), decorate_heightmap('ocean_floor_wg'), decorate_biome())
     configured_placed_feature(rm, 'conglomerate_boulder', 'tfcmars:boulders', {'blocks': [{'block': 'tfc:rock/raw/conglomerate'}]}, decorate_chance(30), decorate_square(), decorate_heightmap('ocean_floor_wg'), decorate_biome())
     configured_placed_feature(rm, 'basalt_boulder', 'tfcmars:boulders', {'blocks': [{'block': 'tfc:rock/raw/basalt'}]}, decorate_chance(30), decorate_square(), decorate_heightmap('ocean_floor_wg'), decorate_biome())
@@ -55,9 +56,9 @@ def biome(rm: ResourceManager, name: str, temp: float = 2):
         ['minecraft:lake_lava_underground', 'minecraft:lake_lava_surface'],  # Lakes
         [],  # Local Modifications
         [],  # Underground Structures
-        ['tfcmars:meteorite', *['tfcmars:%s_boulder' % b for b in ('conglomerate', 'sandstone', 'basalt', 'shale')]],  # Surface Structures
+        [*['tfcmars:%s_boulder' % b for b in ('conglomerate', 'sandstone', 'basalt', 'shale')], 'tfcmars:crater', 'tfcmars:meteorite'],  # Surface Structures
         [],  # Strongholds
-        [],  # Underground Ores
+        ['tfc:vein/gravel'],  # Underground Ores
         [],  # Underground Decoration
         ['minecraft:spring_lava'],  # Fluid Springs (we use this for Large Features in tfc)
         ['tfcmars:mars_berries_patch', 'tfcmars:loose_rocks_patch'],  # Vegetal Decoration
