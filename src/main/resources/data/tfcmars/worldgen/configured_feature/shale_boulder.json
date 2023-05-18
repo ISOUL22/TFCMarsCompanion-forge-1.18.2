@@ -1,0 +1,11 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfcmars:boulders",
+  "config": {
+    "blocks": [
+      {
+        "block": "tfc:rock/raw/shale"
+      }
+    ]
+  }
+}

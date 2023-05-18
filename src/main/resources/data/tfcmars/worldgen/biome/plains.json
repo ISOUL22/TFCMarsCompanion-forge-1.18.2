@@ -1,18 +1,53 @@
 {
   "__comment__": "This file was automatically created by mcresources",
   "precipitation": "none",
-  "category": "none",
-  "temperature": 0,
+  "category": "desert",
+  "temperature": 2,
   "temperature_modifier": "none",
-  "downfall": 0.5,
+  "downfall": 0,
   "effects": {
-    "fog_color": 0,
-    "sky_color": 0,
-    "water_color": 0,
-    "water_fog_color": 0
+    "sky_color": 10909742,
+    "fog_color": 10909742,
+    "water_color": 4159204,
+    "water_fog_color": 4159204
   },
-  "carvers": {},
-  "features": [],
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [
+      "tfcmars:rock_layers",
+      "tfcmars:erosion"
+    ],
+    [
+      "minecraft:lake_lava_underground",
+      "minecraft:lake_lava_surface"
+    ],
+    [],
+    [],
+    [
+      "tfcmars:meteorite",
+      "tfcmars:conglomerate_boulder",
+      "tfcmars:sandstone_boulder",
+      "tfcmars:basalt_boulder",
+      "tfcmars:shale_boulder"
+    ],
+    [],
+    [],
+    [],
+    [
+      "minecraft:spring_lava"
+    ],
+    [
+      "tfcmars:mars_berries_patch",
+      "tfcmars:loose_rocks_patch"
+    ],
+    []
+  ],
   "starts": [],
   "spawners": {},
   "player_spawn_friendly": true,

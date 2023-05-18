@@ -16,6 +16,7 @@ public class ModItems
 
     public static final RegistryObject<Item> MARS_TOKEN = register("mars_token");
     public static final RegistryObject<Item> MARS_BERRY = register("mars_berry");
+    public static final RegistryObject<Item> METEORITE_CHUNK = register("meteorite_chunk");
 
     public static <T extends Item> RegistryObject<T> register(String name, Supplier<T> supplier)
     {

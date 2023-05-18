@@ -3,6 +3,7 @@
   "replace": false,
   "values": [
     "tfcmars:block_of_mars_token",
-    "tfcmars:mars_berries"
+    "tfcmars:mars_berries",
+    "tfcmars:meteorite"
   ]
 }

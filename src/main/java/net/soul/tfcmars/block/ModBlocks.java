@@ -29,6 +29,7 @@ public class ModBlocks
     public static final RegistryObject<Block> MARS_BERRIES = register("mars_berries",
         () -> new MarsBerriesBlock(BlockBehaviour.Properties.of(Material.STONE)
             .strength(1f).requiresCorrectToolForDrops().noOcclusion().sound(SoundType.STONE)), TFCMARS_TAB);
+    public static final RegistryObject<Block> METEORITE = register("meteorite", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(10f).requiresCorrectToolForDrops().sound(SoundType.STONE)), TFCMARS_TAB);
 
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block)
     {
