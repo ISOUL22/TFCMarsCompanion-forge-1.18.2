@@ -1,5 +1,5 @@
 # TFCMarsCompanion-forge-1.18.2
-Authors: Soul
+Authors: Soul, EERussiunguy
 
 Thanks to the TFC dev team this mod would not be possible with out them!
 
