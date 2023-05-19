@@ -10,8 +10,47 @@
           "parameters": {
             "temperature": 0,
             "humidity": 0,
-            "continentalness": 0,
+            "continentalness": [
+              0,
+              2
+            ],
+            "erosion": [
+              -2,
+              0.6
+            ],
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "tfcmars:basin",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": [
+              -2,
+              0
+            ],
             "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "tfcmars:mountains",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": [
+              0,
+              2
+            ],
+            "erosion": [
+              0.6,
+              2
+            ],
             "weirdness": 0,
             "depth": 0,
             "offset": 0

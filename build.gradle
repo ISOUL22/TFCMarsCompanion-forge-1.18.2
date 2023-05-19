@@ -88,6 +88,10 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
     implementation(fg.deobf("curse.maven:tfc-302973:${tfc_identifier}"))
+    implementation(fg.deobf("curse.maven:firmalife-453394:${firmalife_identifier}"))
+    implementation(fg.deobf("curse.maven:ie-231951:${ie_identifier}"))
+    implementation(fg.deobf("curse.maven:mek-268560:${mek_identifier}"))
+    implementation(fg.deobf("curse.maven:ip-268250:${ip_identifier}"))
     // JEI
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")

@@ -21,6 +21,8 @@ def generate(rm: ResourceManager):
     configured_placed_feature(rm, 'loose_rocks_patch', 'minecraft:random_patch', {'tries': 8, 'xz_spread': 7, 'y_spread': 1, 'feature': 'tfcmars:loose_rocks'}, decorate_square())
 
     biome(rm, 'plains')
+    biome(rm, 'basin')
+    biome(rm, 'mountains')
 
     rm.write((*rm.resource_dir, 'data', 'minecraft', 'dimension', 'overworld'), {
         'type': 'tfcmars:mars',
@@ -28,7 +30,9 @@ def generate(rm: ResourceManager):
         'generator': {
             'biome_source': {
                 'biomes': [
-                    biome_params('plains')
+                    biome_params('plains', cont=[0, 2], erosion=[-2, 0.6]),
+                    biome_params('basin', cont=[-2, 0]),
+                    biome_params('mountains', cont=[0, 2], erosion=[0.6, 2])
                 ],
                 'type': 'minecraft:multi_noise'
             },
@@ -52,13 +56,13 @@ def generate(rm: ResourceManager):
 
 def biome(rm: ResourceManager, name: str, temp: float = 2):
     features = [
-        ['tfcmars:rock_layers', 'tfcmars:erosion'],  # Raw Generation
+        ['tfcmars:crater', 'tfcmars:rock_layers', 'tfcmars:erosion'],  # Raw Generation
         ['minecraft:lake_lava_underground', 'minecraft:lake_lava_surface'],  # Lakes
         [],  # Local Modifications
         [],  # Underground Structures
-        [*['tfcmars:%s_boulder' % b for b in ('conglomerate', 'sandstone', 'basalt', 'shale')], 'tfcmars:crater', 'tfcmars:meteorite'],  # Surface Structures
+        [*['tfcmars:%s_boulder' % b for b in ('conglomerate', 'sandstone', 'basalt', 'shale')], 'tfcmars:meteorite'],  # Surface Structures
         [],  # Strongholds
-        ['tfc:vein/gravel'],  # Underground Ores
+        ['tfc:vein/gravel', 'tfc:vein/gypsum', 'tfc:vein/graphite', 'tfc:vein/kaolinite', 'tfc:vein/normal_hematite', 'tfc:vein/deep_hematite', 'tfc:vein/normal_limonite', 'tfc:vein/deep_limonite'],  # Underground Ores
         [],  # Underground Decoration
         ['minecraft:spring_lava'],  # Fluid Springs (we use this for Large Features in tfc)
         ['tfcmars:mars_berries_patch', 'tfcmars:loose_rocks_patch'],  # Vegetal Decoration
@@ -75,7 +79,7 @@ def biome(rm: ResourceManager, name: str, temp: float = 2):
 
     rm.biome(name, features=features, effects=effects, air_carvers=carvers, temperature=temp, downfall=0, category='desert')
 
-def biome_params(name: str = 0, temp: float = 0, humid: float = 0, cont: float = 0, erosion: float = 0, weird: float = 0, depth: float = 0, offset: float = 0):
+def biome_params(name: str = 0, temp: float | List = 0, humid: float | List = 0, cont: float | List = 0, erosion: float | List = 0, weird: float | List = 0, depth: float | List = 0, offset: float | List = 0):
     return {
         'biome': 'tfcmars:%s' % name,
         'parameters': {
