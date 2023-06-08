@@ -22,6 +22,11 @@ def generate(rm: ResourceManager):
     ):
         rm.blockstate(block).with_block_model().with_lang(lang(block)).with_item_model().with_tag(tag).with_block_loot(loot)
 
+    for dust in DUST_TYPES:
+        for variant in DUST_VARIANTS:
+            block = 'soil/%s_%s' % (dust, variant)
+            rm.blockstate(block).with_block_model().with_lang(lang(block)).with_item_model().with_tag('minecraft:mineable/shovel').with_block_loot('tfcmars:%s' % block).with_tag('minecraft:sand')
+
     for name in SIMPLE_ITEMS:
         rm.item_model(name).with_lang(lang(name))
 

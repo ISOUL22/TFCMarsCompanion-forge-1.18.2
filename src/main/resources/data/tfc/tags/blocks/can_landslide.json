@@ -1,0 +1,21 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "replace": false,
+  "values": [
+    "tfcmars:soil/chert_dark",
+    "tfcmars:soil/chert_dusty",
+    "tfcmars:soil/chert_rocky_dark",
+    "tfcmars:soil/chert_rocky_light",
+    "tfcmars:soil/chert_sparse",
+    "tfcmars:soil/claystone_dark",
+    "tfcmars:soil/claystone_dusty",
+    "tfcmars:soil/claystone_rocky_dark",
+    "tfcmars:soil/claystone_rocky_light",
+    "tfcmars:soil/claystone_sparse",
+    "tfcmars:soil/sandstone_dark",
+    "tfcmars:soil/sandstone_dusty",
+    "tfcmars:soil/sandstone_rocky_dark",
+    "tfcmars:soil/sandstone_rocky_light",
+    "tfcmars:soil/sandstone_sparse"
+  ]
+}

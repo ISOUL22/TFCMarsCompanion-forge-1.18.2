@@ -1,0 +1,6 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:landslide",
+  "ingredient": "tfcmars:soil/chert_rocky_light",
+  "result": "tfcmars:soil/chert_rocky_light"
+}

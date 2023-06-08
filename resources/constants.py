@@ -8,6 +8,9 @@ DEFAULT_LANG = {
     'tfcmars.tooltip.room_found': 'Sealed Room found of %s blocks',
 }
 
+DUST_TYPES = ('chert', 'claystone', 'sandstone')
+DUST_VARIANTS = ('dark', 'dusty', 'rocky_dark', 'rocky_light', 'sparse')
+
 # this is a function that converts a thing_like_this into a Thing Like This
 def lang(key: str, *args) -> str:
     return ((key % args) if len(args) > 0 else key).replace('_', ' ').replace('/', ' ').title()
