@@ -2,8 +2,10 @@
   "__comment__": "This file was automatically created by mcresources",
   "replace": false,
   "values": [
-    "tfcmars:block_of_mars_token",
     "tfcmars:mars_berries",
-    "tfcmars:meteorite"
+    "tfcmars:vent",
+    "tfcmars:meteorite",
+    "tfcmars:pressurizer",
+    "tfcmars:block_of_mars_token"
   ]
 }

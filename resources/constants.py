@@ -5,6 +5,7 @@ DEFAULT_LANG = {
     'itemGroup.tfcmarstab': 'TFC Mars Items',
     'tfcmars.tooltip.exact_time': '%s, Sol %04d',
     'tfcmars.tooltip.very_dramatic_tooltip': 'You are still very far from home.',
+    'tfcmars.tooltip.room_found': 'Sealed Room found of %s blocks',
 }
 
 # this is a function that converts a thing_like_this into a Thing Like This

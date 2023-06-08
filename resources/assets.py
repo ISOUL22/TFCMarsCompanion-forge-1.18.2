@@ -5,15 +5,22 @@ from typing import Tuple, Any, Dict
 
 def generate(rm: ResourceManager):
 
-    block = rm.blockstate('block_of_mars_token').with_block_model(textures='tfcmars:block/block_of_mars_token')
-    block.with_item_model().with_lang(lang('block of mars token')).with_tag('minecraft:mineable/pickaxe').with_block_loot('tfcmars:block_of_mars_token')
-
     block = rm.blockstate('mars_berries', variants=four_rotations('tfcmars:block/mars_berries', (90, None, 180, 270)))
     block.with_lang(lang('mars berries')).with_tag('minecraft:mineable/pickaxe').with_block_loot('1-3 tfcmars:mars_berry')
     rm.item_model('mars_berries', parent='tfcmars:block/mars_berries', no_textures=True)
 
-    rm.blockstate('meteorite').with_block_model().with_lang(lang('meteorite')).with_item_model().with_tag('minecraft:mineable/pickaxe').with_block_loot('1-3 tfcmars:meteorite_chunk')
-    rm.blockstate('standard_casing').with_block_model().with_lang(lang('standard_casing')).with_item_model().with_tag('tfc:mineable_with_sharp_tool').with_block_loot('tfcmars:standard_casing')
+    block = rm.blockstate('vent', variants=four_rotations('tfcmars:block/vent', (90, None, 180, 270)))
+    rm.block_model('vent', parent='minecraft:block/orientable', textures={'side': 'tfcmars:block/gas_pipe', 'top': 'tfcmars:block/gas_pipe', 'front': 'tfcmars:block/vent'})
+    block.with_lang(lang('vent')).with_tag('minecraft:mineable/pickaxe').with_block_loot('tfcmars:vent')
+    rm.item_model('vent', parent='tfcmars:block/vent', no_textures=True)
+
+    for block, tag, loot in (
+        ('meteorite', 'minecraft:mineable/pickaxe', '1-3 tfcmars:meteorite_chunk'),
+        ('standard_casing', 'tfc:mineable_with_sharp_tool', 'tfcmars:standard_casing'),
+        ('pressurizer', 'minecraft:mineable/pickaxe', 'tfcmars:pressurizer'),
+        ('block_of_mars_token', 'minecraft:mineable/pickaxe', 'tfcmars:block_of_mars_token')
+    ):
+        rm.blockstate(block).with_block_model().with_lang(lang(block)).with_item_model().with_tag(tag).with_block_loot(loot)
 
     for name in SIMPLE_ITEMS:
         rm.item_model(name).with_lang(lang(name))

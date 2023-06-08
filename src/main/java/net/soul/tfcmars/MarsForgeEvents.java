@@ -1,17 +1,24 @@
 package net.soul.tfcmars;
 
 import java.util.UUID;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.soul.tfcmars.capability.player.MarsPlayerData;
+import net.soul.tfcmars.capability.player.MarsPlayerDataCapability;
 import net.soul.tfcmars.misc.MarsClimateModel;
+import net.soul.tfcmars.misc.PlayerOxygenHandler;
 
 import net.dries007.tfc.util.events.SelectClimateModelEvent;
 
@@ -24,6 +31,8 @@ public final class MarsForgeEvents
         bus.addListener(MarsForgeEvents::onClimateModel);
         bus.addListener(MarsForgeEvents::onLivingFall);
         bus.addListener(MarsForgeEvents::onEntityJoinLevel);
+        bus.addListener(MarsForgeEvents::onPlayerTick);
+        bus.addGenericListener(Entity.class, MarsForgeEvents::onEntityCaps);
     }
 
     public static final UUID MARS_JUMP_ID = UUID.fromString("ce80c1ce-3fde-4af6-b2b7-2d7681756f31");
@@ -90,5 +99,18 @@ public final class MarsForgeEvents
                 }
             }
         }
+    }
+
+    public static void onEntityCaps(AttachCapabilitiesEvent<Entity> event)
+    {
+        if (event.getObject() instanceof Player player)
+        {
+            event.addCapability(MarsPlayerDataCapability.KEY, new MarsPlayerData(player));
+        }
+    }
+
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event)
+    {
+        PlayerOxygenHandler.tick(event.player);
     }
 }

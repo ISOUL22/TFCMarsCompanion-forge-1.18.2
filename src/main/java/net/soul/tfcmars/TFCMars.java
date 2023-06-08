@@ -10,10 +10,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.soul.tfcmars.block.ModBlocks;
+import net.soul.tfcmars.blockentity.ModBlockEntities;
 import net.soul.tfcmars.client.MarsClientEvents;
 import net.soul.tfcmars.client.MarsClientForgeEvents;
 import net.soul.tfcmars.item.ModItems;
 import net.soul.tfcmars.misc.TFCMarsClimateModels;
+import net.soul.tfcmars.network.MarsPacketHandler;
 import net.soul.tfcmars.world.feature.ModFeatures;
 import org.slf4j.Logger;
 
@@ -35,6 +37,7 @@ public class TFCMars
         ModItems.register(bus);
         ModBlocks.register(bus);
         ModFeatures.FEATURES.register(bus);
+        ModBlockEntities.BLOCK_ENTITIES.register(bus);
 
         bus.addListener(this::setup);
 
@@ -44,6 +47,7 @@ public class TFCMars
             MarsClientForgeEvents.init();
         }
         MarsForgeEvents.init();
+        MarsPacketHandler.init();
     }
 
     public void setup(FMLCommonSetupEvent event)

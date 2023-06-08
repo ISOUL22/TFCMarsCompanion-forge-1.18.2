@@ -1,0 +1,9 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "side": "tfcmars:block/gas_pipe",
+    "top": "tfcmars:block/gas_pipe",
+    "front": "tfcmars:block/vent"
+  }
+}

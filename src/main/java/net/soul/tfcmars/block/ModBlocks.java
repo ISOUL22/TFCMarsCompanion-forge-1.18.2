@@ -13,9 +13,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.soul.tfcmars.TFCMars;
 import net.soul.tfcmars.block.custom.MarsBerriesBlock;
+import net.soul.tfcmars.block.custom.PressurizerBlock;
+import net.soul.tfcmars.block.custom.VentBlock;
+import net.soul.tfcmars.blockentity.ModBlockEntities;
 import net.soul.tfcmars.item.ModItems;
 
 import java.util.function.Supplier;
+
+import net.dries007.tfc.common.blocks.ExtendedProperties;
 
 import static net.soul.tfcmars.item.ModCreativeModeTab.*;
 
@@ -31,6 +36,8 @@ public class ModBlocks
             .strength(1f).requiresCorrectToolForDrops().noOcclusion().sound(SoundType.STONE)), TFCMARS_TAB);
     public static final RegistryObject<Block> METEORITE = register("meteorite", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(10f).requiresCorrectToolForDrops().sound(SoundType.STONE)), TFCMARS_TAB);
     public static final RegistryObject<Block> STANDARD_CASING = register("standard_casing", () -> new Block(BlockBehaviour.Properties.of(Material.WOOL).strength(5f).sound(SoundType.WOOL)), TFCMARS_TAB);
+    public static final RegistryObject<Block> PRESSURIZER = register("pressurizer", () -> new PressurizerBlock(ExtendedProperties.of(Material.METAL).strength(5f).randomTicks().sound(SoundType.METAL).blockEntity(ModBlockEntities.PRESSURIZER)), TFCMARS_TAB);
+    public static final RegistryObject<Block> VENT = register("vent", () -> new VentBlock(ExtendedProperties.of(Material.METAL).strength(5f).randomTicks().sound(SoundType.METAL).blockEntity(ModBlockEntities.VENT)), TFCMARS_TAB);
 
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block)
     {
