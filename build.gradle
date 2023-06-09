@@ -79,7 +79,9 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
-
+    maven {
+        url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
+    }
     flatDir {
         dirs 'libs'
     }
@@ -90,13 +92,12 @@ dependencies {
     implementation(fg.deobf("curse.maven:tfc-302973:${tfc_identifier}"))
     implementation(fg.deobf("curse.maven:firmalife-453394:${firmalife_identifier}"))
     implementation(fg.deobf("curse.maven:ie-231951:${ie_identifier}"))
-    implementation(fg.deobf("curse.maven:mek-268560:${mek_identifier}"))
     implementation(fg.deobf("curse.maven:ip-268250:${ip_identifier}"))
-    // JEI
+    implementation(fg.deobf("curse.maven:mek-268560:${mek_identifier}"))
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
-    // Patchouli
     implementation fg.deobf("curse.maven:patchouli-306770:3846086")
+    implementation fg.deobf("curse.maven:geckolib-388172:4181370")
 
     //runtimeOnly fg.deobf("cyanide:cyanide-forge-1.18.2:2.1.1")
 

@@ -1,6 +1,9 @@
 package net.soul.tfcmars;
 
 import com.mojang.logging.LogUtils;
+import net.dries007.tfc.util.Helpers;
+import net.dries007.tfc.util.calendar.Calendars;
+import net.dries007.tfc.util.calendar.ICalendar;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,11 +21,7 @@ import net.soul.tfcmars.misc.TFCMarsClimateModels;
 import net.soul.tfcmars.network.MarsPacketHandler;
 import net.soul.tfcmars.world.feature.ModFeatures;
 import org.slf4j.Logger;
-
-import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.calendar.Calendars;
-import net.dries007.tfc.util.calendar.ICalendar;
-import net.dries007.tfc.util.calendar.Month;
+import software.bernie.geckolib3.GeckoLib;
 
 @Mod(TFCMars.MOD_ID)
 public class TFCMars
@@ -48,6 +47,8 @@ public class TFCMars
         }
         MarsForgeEvents.init();
         MarsPacketHandler.init();
+
+        GeckoLib.initialize();
     }
 
     public void setup(FMLCommonSetupEvent event)

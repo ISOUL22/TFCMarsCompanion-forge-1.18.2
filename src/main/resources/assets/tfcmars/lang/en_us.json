@@ -27,5 +27,10 @@
   "itemGroup.tfcmarstab": "TFC Mars Items",
   "tfcmars.tooltip.exact_time": "%s, Sol %04d",
   "tfcmars.tooltip.very_dramatic_tooltip": "You are still very far from home.",
-  "tfcmars.tooltip.room_found": "Sealed Room found of %s blocks"
+  "tfcmars.tooltip.room_found": "Sealed Room found of %s blocks",
+
+  "item.tfcmars.tier3_helmet": "Tier 3 Helmet",
+  "item.tfcmars.tier3_body": "Tier 3 Body",
+  "item.tfcmars.tier3_legging": "Tier 3 Leggings",
+  "item.tfcmars.tier3_boots": "Tier 3 Boots"
 }
