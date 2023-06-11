@@ -59,7 +59,7 @@ public final class PlayerOxygenHandler
                 }
                 else if (ox < 10)
                 {
-                    cap.setOxygenTicks(10);
+                    cap.setOxygenTicks(20);
                 }
                 player.displayClientMessage(Helpers.literal("Oxygen: " + cap.getOxygenTicks()), true);
             });

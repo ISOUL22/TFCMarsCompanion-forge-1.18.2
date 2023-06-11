@@ -19,10 +19,16 @@ def generate(rm: ResourceManager):
     configured_patch_feature(rm, 'mars_berries', patch_config('tfcmars:mars_berries', 1, 8, 16), decorate_chance(20), decorate_square(), decorate_heightmap('ocean_floor_wg'), decorate_range(0, 70), decorate_biome())
     configured_placed_feature(rm, 'loose_rocks', 'tfcmars:loose_rocks', {}, decorate_heightmap('ocean_floor_wg'))
     configured_placed_feature(rm, 'loose_rocks_patch', 'minecraft:random_patch', {'tries': 8, 'xz_spread': 7, 'y_spread': 1, 'feature': 'tfcmars:loose_rocks'}, decorate_square())
+    configured_placed_feature(rm, 'lava_lake', 'minecraft:lake', {'fluid': simple_state_provider('minecraft:lava[level=0]'), 'barrier': simple_state_provider('tfc:rock/raw/basalt')}, decorate_chance(100), decorate_square(), decorate_heightmap('ocean_floor_wg'), decorate_biome())
+    rm.placed_feature('lava_lake_underground', 'tfcmars:lava_lake', decorate_chance(9), decorate_square(), decorate_range(('absolute', 0), ('below_top', 0)), decorate_scan(32, 'down', scan_not_air(), scan_world_within(-5)), decorate_heightmap_threshold('ocean_floor_wg', -5), decorate_biome())
 
     biome(rm, 'plains')
     biome(rm, 'basin')
     biome(rm, 'mountains')
+
+    rm.biome_tag('claystone_dust', 'tfcmars:basin')
+    rm.biome_tag('sandstone_dust', 'tfcmars:plains')
+    rm.biome_tag('chert_dust', 'tfcmars:mountains')
 
     rm.write((*rm.resource_dir, 'data', 'minecraft', 'dimension', 'overworld'), {
         'type': 'tfcmars:mars',
@@ -57,7 +63,7 @@ def generate(rm: ResourceManager):
 def biome(rm: ResourceManager, name: str, temp: float = 2):
     features = [
         ['tfcmars:crater', 'tfcmars:rock_layers', 'tfcmars:erosion'],  # Raw Generation
-        ['minecraft:lake_lava_underground', 'minecraft:lake_lava_surface'],  # Lakes
+        ['tfcmars:lava_lake_underground', 'tfcmars:lava_lake'],  # Lakes
         [],  # Local Modifications
         [],  # Underground Structures
         [*['tfcmars:%s_boulder' % b for b in ('conglomerate', 'sandstone', 'basalt', 'shale')], 'tfcmars:meteorite'],  # Surface Structures
@@ -155,6 +161,9 @@ def configured_patch_feature(rm: ResourceManager, name_parts: ResourceIdentifier
     rm.placed_feature(patch_feature, patch_feature, *patch_decorators)
     rm.placed_feature(singular_feature, singular_feature, decorate_heightmap(heightmap), *singular_decorators)
 
+def simple_state_provider(name: str) -> Dict[str, Any]:
+    return {'type': 'minecraft:simple_state_provider', 'state': utils.block_state(name)}
+
 def decorate_block_predicate(predicate: Json) -> Json:
     return {
         'type': 'block_predicate_filter',
@@ -188,10 +197,37 @@ def decorate_replaceable() -> Json:
 def decorate_air_or_empty_fluid() -> Json:
     return decorate_block_predicate({'type': 'tfc:air_or_empty_fluid'})
 
+def scan_world_within(blocks: int) -> Json:
+    return {
+        "offset": [0, blocks, 0],
+        "type": "minecraft:inside_world_bounds"
+    }
+
+def scan_not_air() -> Json:
+    return {
+        "predicate": {
+            "blocks": "minecraft:air",
+            "type": "minecraft:matching_blocks"
+        },
+        "type": "minecraft:not"
+    }
+
+def decorate_scan(steps: int, direction: str, *predicates: Json):
+    return {
+        'direction_of_search': direction,
+        'type': 'minecraft:environment_scan',
+        'max_steps': steps,
+        'target_condition': {'predicates': [p for p in predicates], 'type': 'minecraft:all_of'}
+    }
 
 def decorate_heightmap(heightmap: Heightmap) -> Json:
     assert heightmap in get_args(Heightmap)
     return 'minecraft:heightmap', {'heightmap': heightmap.upper()}
+
+def decorate_heightmap_threshold(heightmap: Heightmap, max_inclusive: int) -> Json:
+    assert heightmap in get_args(Heightmap)
+    return 'minecraft:surface_relative_threshold_filter', {'heightmap': heightmap.upper(), 'max_inclusive': max_inclusive}
+
 
 def height_provider(min_y: VerticalAnchor, max_y: VerticalAnchor, height_type: HeightProviderType = 'uniform') -> Dict[str, Any]:
     assert height_type in get_args(HeightProviderType)

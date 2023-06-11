@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "item/generated",
+  "parent": "tfcmars:block/single_layer",
   "textures": {
-    "layer0": "tfcmars:block/blueberry_rich"
+    "all": "tfcmars:block/blueberry_normal"
   }
 }

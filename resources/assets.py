@@ -5,9 +5,16 @@ from typing import Tuple, Any, Dict
 
 def generate(rm: ResourceManager):
 
-    block = rm.blockstate('mars_berries', variants=four_rotations('tfcmars:block/mars_berries', (90, None, 180, 270)))
+    block = rm.blockstate('mars_berries', variants={
+        **four_rotations('tfcmars:block/mars_berries1', (90, None, 180, 270)),
+        **four_rotations('tfcmars:block/mars_berries2', (90, None, 180, 270)),
+        **four_rotations('tfcmars:block/mars_berries3', (90, None, 180, 270)),
+    })
     block.with_lang(lang('mars berries')).with_tag('minecraft:mineable/pickaxe').with_block_loot('1-3 tfcmars:mars_berry')
-    rm.item_model('mars_berries', parent='tfcmars:block/mars_berries', no_textures=True)
+    rm.item_model('mars_berries', 'tfcmars:block/blueberry_rich')
+    rm.block_model('mars_berries1', parent='tfcmars:block/single_layer', textures={'all': 'tfcmars:block/blueberry_poor'})
+    rm.block_model('mars_berries2', parent='tfcmars:block/single_layer', textures={'all': 'tfcmars:block/blueberry_normal'})
+    rm.block_model('mars_berries3', parent='tfcmars:block/single_layer', textures={'all': 'tfcmars:block/blueberry_rich'})
 
     block = rm.blockstate('vent', variants=four_rotations('tfcmars:block/vent', (90, None, 180, 270)))
     rm.block_model('vent', parent='minecraft:block/orientable', textures={'side': 'tfcmars:block/gas_pipe', 'top': 'tfcmars:block/gas_pipe', 'front': 'tfcmars:block/vent'})
